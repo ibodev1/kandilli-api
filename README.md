@@ -1,6 +1,6 @@
 # Kandilli API
 
-[Kandilli Rasathanesi ve Deprem Araştırma Enstitüsü](http://www.koeri.boun.edu.tr/scripts/lst1.asp)'nün son dakika depremleri listesinin REST API halidir. Vercel REST API desteği üctretsiz olduğu sürece ücretsizdir. Hiçbir ticari amaç için kullanılmamaktadır. İletişim için [mail adresim](mailto:ibrahimodev42@gmail.com).
+[Kandilli Rasathanesi ve Deprem Araştırma Enstitüsü](http://www.koeri.boun.edu.tr/scripts/lst1.asp)'nün son depremler listesinin REST API halidir. Vercel REST API desteği üctretsiz olduğu sürece ücretsizdir. Hiçbir ticari amaç için kullanılmamaktadır. İletişim için [mail adresim](mailto:ibrahimodev42@gmail.com).
 
 ## Son 100 deprem
 
