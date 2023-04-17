@@ -1,5 +1,5 @@
 import jsdom from "jsdom";
-import { type Earthquake } from "../types/kandilli";
+import { type Earthquake } from "../types/kandilli.js";
 const { JSDOM } = jsdom;
 
 const replaceTurkishCharacter = (str: string): string => {

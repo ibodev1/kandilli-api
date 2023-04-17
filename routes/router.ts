@@ -1,5 +1,5 @@
 import express from "express";
-import indexRouter from "./index";
+import indexRouter from "./index.js";
 
 const routes = express.Router();
 

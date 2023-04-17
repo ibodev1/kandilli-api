@@ -1,13 +1,13 @@
 import express, { type Request, type Response } from "express";
-import { type Earthquake } from "../types/kandilli";
-import getEarthquakeList from "../utilities/kandilli";
+import { type Earthquake } from "../types/kandilli.js";
+import getEarthquakeList from "../utilities/kandilli.js";
 
 const indexRouter = express.Router();
 
 indexRouter.get("/", async (request: Request, response: Response) => {
   try {
     const earthquakeList: Earthquake[] | undefined = await getEarthquakeList();
-    var responseData: Earthquake[] | undefined = earthquakeList;
+    let responseData: Earthquake[] | undefined = earthquakeList;
     if (request.query.sehir) {
       responseData = responseData?.filter(
         (deprem: Earthquake) => deprem.sehir === request.query.sehir
@@ -33,7 +33,7 @@ indexRouter.get("/", async (request: Request, response: Response) => {
 
     if (request.query.sort) {
       const sortedBy: any = request.query.sort.toString();
-      // @ts-ignore
+      //@ts-ignore
       responseData = responseData?.sort((a, b) => b[sortedBy] - a[sortedBy]);
     }
 

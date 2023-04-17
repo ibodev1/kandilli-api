@@ -1,6 +1,6 @@
-import app from "./app";
+import app from "./app.js";
 import logger from "morgan";
-import routes from "./routes/router";
+import routes from "./routes/router.js";
 
 app.use(logger("dev"));
 app.use("/", routes);
