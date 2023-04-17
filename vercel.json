@@ -22,7 +22,7 @@
     {
       "source": "/",
       "destination": "/api",
-      "permanent": true
+      "permanent": false
     }
   ],
   "rewrites": [{ "source": "/api/(.*)", "destination": "/api/404.ts" }]
