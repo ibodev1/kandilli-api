@@ -2,6 +2,11 @@ import jsdom from "jsdom";
 import { type Earthquake } from "../types/kandilli.js";
 const { JSDOM } = jsdom;
 
+const bolgeNameParser = (name: string) => {
+  name = name.replace(/-/g, " ");
+  return name.trim();
+}
+
 const replaceTurkishCharacter = (str: string): string => {
   try {
     return str
@@ -23,7 +28,7 @@ const parseLine = (lineArray: string[]): Earthquake => {
   const md = lineArray.slice(55, 58);
   const ml = lineArray.slice(59, 64);
   const mw = lineArray.slice(65, 68);
-  const fullYer = combineString(lineArray.slice(70, 120));
+  const fullYer: string | undefined = combineString(lineArray.slice(70, 120));
   const [, bolge, sehir]: any = /^(.*?)(?:\((.*)\))?$/.exec(fullYer);
   const nitelik = lineArray.slice(121);
   const dataLine: Earthquake = {
@@ -35,9 +40,9 @@ const parseLine = (lineArray: string[]): Earthquake => {
     md: combineString(md),
     ml: combineString(ml),
     mw: combineString(mw),
-    yer: fullYer,
-    sehir: sehir !== undefined ? sehir.trim() : "",
-    bolge: bolge !== undefined ? bolge.trim() : "",
+    yer: fullYer ?? undefined,
+    sehir: sehir && sehir.trim(),
+    bolge: bolge && bolgeNameParser(bolge),
     nitelik: combineString(nitelik)
   };
   return dataLine;
