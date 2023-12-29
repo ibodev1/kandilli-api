@@ -1,10 +1,11 @@
 import jsdom from 'jsdom';
 import {type Earthquake} from '../types/kandilli.js';
+import {genId} from './gen-id.js';
 
 const {JSDOM} = jsdom;
 
 const bolgeNameParser = (name: string) => {
-	name = name.replaceAll('-', ' ');
+	name = name.replaceAll('-', '/');
 	return name.trim();
 };
 
@@ -33,6 +34,11 @@ const parseLine = (lineArray: string[]): Earthquake => {
 	const [, bolge, sehir]: any = /^(.*?)(?:\((.*)\))?$/.exec(fullYer);
 	const nitelik = lineArray.slice(121);
 	const dataLine: Earthquake = {
+		id: genId(
+			String(sehir).trim().toLowerCase(),
+			String(bolge).trim().toLowerCase(),
+	  		`${combineString(tarih)} ${combineString(saat)}`,
+		),
 		tarih: combineString(tarih),
 		saat: combineString(saat),
 		enlem: combineString(enlem),

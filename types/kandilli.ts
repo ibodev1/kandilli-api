@@ -1,4 +1,5 @@
 export type Earthquake = {
+	id: string;
 	tarih: string;
 	saat: string;
 	enlem: string;

@@ -16,8 +16,8 @@ indexRouter.get('/', async (request: Request, response: Response) => {
 
 		if (
 			request.query.limit
-      && Number(request.query.limit) >= 10
-      && Number(request.query.limit) <= 500
+      		&& Number(request.query.limit) >= 10
+      		&& Number(request.query.limit) <= 500
 		) {
 			responseData = responseData?.slice(0, Number(request.query.limit));
 		} else {
