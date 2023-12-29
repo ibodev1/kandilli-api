@@ -1,8 +1,8 @@
-import express from "express";
-import indexRouter from "./index.js";
+import express from 'express';
+import indexRouter from './index.js';
 
 const routes = express.Router();
 
-routes.use("/", indexRouter);
+routes.use('/', indexRouter);
 
 export default routes;
